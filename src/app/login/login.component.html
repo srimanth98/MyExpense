@@ -1,21 +1,40 @@
-<mat-grid-list cols="12" rowHeight="80%">
-    <mat-grid-tile colspan="1">
-    </mat-grid-tile>
-    <mat-grid-tile colspan="10">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>Shiba Inu</mat-card-title>
-                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                  The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                  A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                  bred for hunting.
-                </p>
-              </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1">
-    </mat-grid-tile>
-</mat-grid-list>
+
+<div class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-1 col-md-1"></div>
+            <div class="col-sm-10 col-md-10">
+                <mat-card class="full-width-center" [class.mat-elevation-z8]="true">
+                    <mat-card-title>Login</mat-card-title>
+                    <mat-card-subtitle>Please log in to the application to get started.</mat-card-subtitle>
+                <mat-card-content>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <p>
+                            <mat-form-field appearance="fill" class="full-width">
+                                <mat-label>Username/Email</mat-label>
+                                <input matInput placeholder="Enter a valid username" formControlName="username">
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field appearance="fill" class="full-width">
+                                <mat-label>Enter your password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                              </mat-form-field>
+                        </p>
+
+                        <div class="example-button-container full-width">
+                            <button mat-raised-button color="accent">Login</button>
+                        </div>
+                      
+                      </form>
+                  </mat-card-content>
+            </mat-card>
+            </div>
+            <div class="col-sm-1 col-md-1"></div>
+        </div>
+    </div>
+    
+</div>

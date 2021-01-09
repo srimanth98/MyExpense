@@ -1,1 +1,2 @@
 ng add @angular/material
+npm i bootstrap

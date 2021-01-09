@@ -1,0 +1,13 @@
+Theme generator URL:
+https://materialtheme.arcsine.dev/
+
+Primary: #219F63
+Accent: #EC407A
+Warning: #ff0000
+
+light: text - #22252c, background - #fafafa
+dark: text - #ffffff, background - #22252c
+
+Icons: Rounded
+
+Fonts: Roboto (defaults)
