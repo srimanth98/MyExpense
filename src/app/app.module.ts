@@ -4,9 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import { LoginComponent } from './login/login.component';
+// import { MatSliderModule } from '@angular/material/slider';
+import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AngularFireModule } from '@angular/fire';
 
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
@@ -41,6 +43,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NavComponent } from './components/nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { FirebaseAuthService } from './services/firebase-auth.service';
 
 
 const materialModules = [
@@ -75,13 +81,15 @@ const materialModules = [
   MatGridListModule,
   MatRadioModule,
   MatDatepickerModule,
+  MatSlideToggleModule
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -89,9 +97,20 @@ const materialModules = [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    ...materialModules
+    LayoutModule,
+
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyB3aKxtsplxjWoNXfi6LN9IvAjPuZfq5BQ",
+      authDomain: "my-expense-1.firebaseapp.com",
+      projectId: "my-expense-1",
+      storageBucket: "my-expense-1.appspot.com",
+      messagingSenderId: "11290674833",
+      appId: "1:11290674833:web:9ab563cc790fa61de6a130",
+      measurementId: "G-6HXM29YYN2"
+    }),
+    ...materialModules,
   ],
-  providers: [],
+  providers: [FirebaseAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

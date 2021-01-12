@@ -1,2 +1,4 @@
 ng add @angular/material
 npm i bootstrap
+npm i firebase @angular/fire
+ng g s services/firebase-auth
